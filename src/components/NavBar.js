@@ -10,6 +10,9 @@ import {
 } from "./Icons";
 
 const StyledNav = styled.div`
+	position: fixed;
+	top: 0;
+	width: 100%;
 	background-color: #fff;
 	border-bottom: 1px solid #dbdbdb;
 	padding: 1rem 0;

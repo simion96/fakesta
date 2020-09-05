@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import Comment from "./Comment";
 import avatar from "../assets/avatar.png";
 import post from "../assets/post.png";
 import { HeartIcon, CommentIcon, InboxIcon, BookmarkIcon } from "./Icons";
 
 const StyledPost = styled.div`
-	margin: 1rem 0;
-	width: 615px;
-	background: #fff;
-	border: 1px solid #dbdbdb;
+    display: grid;
+    border: 1px solid #dbdbdb;
+    grid-template-columns: repeat(2, 1fr);
 	.post-header {
 		display: flex;
 		align-items: center;
@@ -70,34 +70,38 @@ const Post = () => {
 
 	return (
 		<StyledPost>
-			<div className="post-header">
-				<img className="avatar" src={avatar} alt="avatar" />
-				<p>an username</p>
-			</div>
+            <div className="post-info">
+                <div className="post-header">
+                    <img className="avatar" src={avatar} alt="avatar" />
+                    <p>an username</p>
+                </div>
 
-			<img className="post-img" src={post} alt="post-img" />
+                <img className="post-img" src={post} alt="post-img" />
 
-			<div className="post-actions">
-				<HeartIcon />
-				<CommentIcon />
-				<InboxIcon />
-				<BookmarkIcon />
-			</div>
+                <div className="post-action-stats">
+                <div className="post-actions">
+                    <HeartIcon />
+                    <CommentIcon />
+                    <InboxIcon />
+                    <BookmarkIcon />
+                </div>
+                <span class="likes bold">12,420 likes</span>
 
-			<div class="likes-caption-comments">
-				<span class="likes bold">12,420 likes</span>
+                </div>
 
-				{comments.map(comment => (
-					<p>
-						<span class="username bold">{comment.user}</span>
-						{comment.text}
-					</p>
-				))}
-			</div>
 
-			<div className="add-comment">
-				<textarea columns="3"></textarea>
-			</div>
+                <div className="comments">
+
+                {comments.map(comment => (
+						<Comment comment={comment} />
+					))}
+                </div>
+
+                <div className="add-comment">
+                    <textarea columns="2"></textarea>
+                </div>
+        </div>
+
 		</StyledPost>
 	);
 };
