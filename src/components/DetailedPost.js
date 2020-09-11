@@ -65,17 +65,6 @@ const DetailedPostWrapper = styled.div`
 `
 
 const DetailedPost = () => {
-    const comments = [
-        {username: "jimbob", text: "im a comment"},
-        {username: "jimbob", text: "im a comment"},
-        {username: "jimbob", text: "im a different comment"},
-        {username: "jimbob", text: "im a  same comment"},
-        
-        {username: "jimbob", text: "im a comment"}, 
-        {username: "jimbob", text: "im a comment"},
-
-    ];
-
     return (
         <DetailedPostWrapper>
             <img className="post-img" src={detailedPost} alt="post" />

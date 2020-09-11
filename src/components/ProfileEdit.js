@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import ProfileForm from "./ProfileForm";
+import ProfileSettings from "./ProfileSettings";
 import ChangePassword from "./ChangePassword";
 
-const Wrapper = styled.div`
+const EditProfileWrapper = styled.div`
 	grid-template-columns: 250px 1fr;
 	width: 930px;
 	border: 1px solid #dbdbdb;
@@ -34,7 +34,7 @@ const EditProfile = () => {
 	const [tab, setTab] = useState("profile");
 
 	return (
-		<Wrapper>
+		<EditProfileWrapper>
 			<div className="tabs">
 				<ul>
 					<li
@@ -44,8 +44,8 @@ const EditProfile = () => {
 						Edit Profile
 					</li>
 					<li
-						onClick={() => setTab("changepw")}
-						className={tab === "changepw" ? "bold" : ""}
+						onClick={() => setTab("changepassword")}
+						className={tab === "changepassword" ? "bold" : ""}
 					>
 						Change Password
 					</li>
@@ -54,16 +54,16 @@ const EditProfile = () => {
 
 			{tab === "profile" && (
 				<div className="profile-form-container">
-					<ProfileForm />
+					<ProfileSettings />
 				</div>
 			)}
 
-			{tab === "changepw" && (
+			{tab === "changepassword" && (
 				<div className="profile-form-container">
 					<ChangePassword />
 				</div>
 			)}
-		</Wrapper>
+		</EditProfileWrapper>
 	);
 };
 

@@ -4,7 +4,7 @@ import PostPreview from "../components/PostPreview";
 
 
 export default {
-    title: 'Post/PostPreview',
+    title: 'Post/PostsPreview',
     component: PostPreview
 };
 

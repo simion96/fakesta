@@ -4,7 +4,7 @@ import ProfileHeader from "../components/ProfileHeader";
 
 
 export default {
-    title: 'ProfileHeader/ProfileHeader',
+    title: 'User/ProfileHeader',
     component: ProfileHeader
 };
 

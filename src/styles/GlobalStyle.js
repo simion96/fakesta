@@ -27,6 +27,9 @@ const GlobalStyle = createGlobalStyle`
 	*:focus {
 	  outline: none;
 	}
+	.bold {
+		font-weight: 500;
+	}
 `;
 
 export default GlobalStyle;
