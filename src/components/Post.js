@@ -27,7 +27,7 @@ const StyledPost = styled.div`
 	.post-actions {
 		display: flex;
 		align-items: center;
-		padding: 0.5rem 1rem;
+		padding: 0.5rem 1rem; 
 		padding-bottom: 0.2rem;
 	}
 	.post-actions svg:last-child {
@@ -98,7 +98,7 @@ const Post = () => {
                 </div>
 
                 <div className="add-comment">
-                    <textarea columns="2"></textarea>
+                    <textarea columns="3"></textarea>
                 </div>
         </div>
 

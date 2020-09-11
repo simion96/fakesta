@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import GlobalStyle from "./styles/GlobalStyle";
 import NavBar from "./components/NavBar";
 import Post from "./components/Post";
+import PostPreview from "./components/PostPreview";
+
 //import ProfilePreview from "./components/ProfileView";
 import './App.css';
 
@@ -21,6 +23,8 @@ function App() {
 
       <Container>
         <Post />
+        <hr />
+
       </Container>
 		</>
 	);

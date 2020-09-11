@@ -31,7 +31,7 @@ const StyledNav = styled.div`
 		padding: 0.4rem 0.6rem;
 		background: #fafafa;
 		border: 1px solid #dbdbdb;
-		font-family: "Fira Sans", sans-serif;
+		font-family: "Helvetica", sans-serif;
 		font-size: 1rem;
 		border-radius: 4px;
 	}

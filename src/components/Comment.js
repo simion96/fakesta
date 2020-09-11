@@ -12,7 +12,7 @@ const Comment = ({ comment }) => {
 	return (
 		<CommentWrapper>
 			<Avatar src={avatar} alt="avatar" />
-			<div className="class-info">
+			<div className="comment-info">
 				<span className="bold">{comment.username}</span>
 				<p>{comment.text}</p>
 			</div>
