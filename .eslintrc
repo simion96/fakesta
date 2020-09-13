@@ -1,6 +1,6 @@
 {
   "extends": ["airbnb"],
-  "plugins": ["prettier"],
+  "plugins": [],
   "env": {
     "node": true,
     "es6": true,
@@ -8,7 +8,9 @@
   },
   "rules": {
     "no-console": "off",
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "linebreak-style": 0,
 
   }
+
 }

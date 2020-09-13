@@ -1,7 +1,9 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import ProfileSettings from "./ProfileSettings";
-import ChangePassword from "./ChangePassword";
+import React, {
+  useState,
+} from 'react';
+import styled from 'styled-components';
+import ProfileSettings from './ProfileSettings';
+import ChangePassword from './ChangePassword';
 
 const EditProfileWrapper = styled.div`
 	grid-template-columns: 250px 1fr;
@@ -31,40 +33,51 @@ const EditProfileWrapper = styled.div`
 `;
 
 const EditProfile = () => {
-	const [tab, setTab] = useState("profile");
+  const [tab, setTab] = useState('profile');
 
-	return (
-		<EditProfileWrapper>
-			<div className="tabs">
-				<ul>
-					<li
-						onClick={() => setTab("profile")}
-						className={tab === "profile" ? "bold" : ""}
-					>
-						Edit Profile
-					</li>
-					<li
-						onClick={() => setTab("changepassword")}
-						className={tab === "changepassword" ? "bold" : ""}
-					>
-						Change Password
-					</li>
-				</ul>
-			</div>
+  return (
+    <EditProfileWrapper>
+      <div className="tabs">
+        <ul>
+          <li
+            onClick={() => setTab('profile')}
+            className={tab === 'profile' ? 'bold' : ''} >
+            Edit Profile {' '}
+          </li>
+          {' '}
+          <li
+            onClick={
+              () => setTab('changepassword')
+            }
+            className={
+              tab === 'changepassword' ? 'bold' : ''
+            }
+          >
+            Change Password
+            {' '}
+          </li>
+          {' '}
 
-			{tab === "profile" && (
-				<div className="profile-form-container">
-					<ProfileSettings />
-				</div>
-			)}
+        </ul>
+      </div>
 
-			{tab === "changepassword" && (
-				<div className="profile-form-container">
-					<ChangePassword />
-				</div>
-			)}
-		</EditProfileWrapper>
-	);
+      {
+        tab === 'profile' && (
+          <div className="profile-form-container">
+            <ProfileSettings />
+          </div>
+        )
+      }
+
+      {
+        tab === 'changepassword' && (
+          <div className="profile-form-container">
+            <ChangePassword />
+          </div>
+        )
+      }
+    </EditProfileWrapper>
+  );
 };
 
 export default EditProfile;

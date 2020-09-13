@@ -1,7 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import avatar from "../assets/default_avatar.jpg";
-import Button from "../styles/Button";
+/* eslint-disable linebreak-style */
+import React from 'react';
+import styled from 'styled-components';
+import avatar from '../assets/default_avatar.jpg';
+import Button from '../styles/Button';
 
 const PreviewWrapper = styled.div`
 	display: flex;
@@ -25,15 +26,13 @@ const PreviewWrapper = styled.div`
 	}
 `;
 
-const ProfileMiniView = ({ user }) => {
-	return (
-		<PreviewWrapper key={user.username}>
-			<img src={avatar} alt="avatar" />
-			<h4>{user.username}</h4>
-			<span className="fullname">{user.fullname}</span>
-			<Button>Follow</Button>
-		</PreviewWrapper>
-	);
-};
+const ProfileMiniView = ({ user }) => (
+  <PreviewWrapper key={user.username}>
+    <img src={avatar} alt="avatar" />
+    <h4>{user.username}</h4>
+    <span className="fullname">{user.fullname}</span>
+    <Button>Follow</Button>
+  </PreviewWrapper>
+);
 
 export default ProfileMiniView;

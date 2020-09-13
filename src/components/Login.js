@@ -1,6 +1,9 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useContext } from 'react';
+import styled from 'styled-components';
 import logo from '../assets/logo.png';
+import { login, me } from '../services/api';
+import useInput from '../hooks/useInput';
+import { UserContext } from '../context/UserContext';
 
 export const Form = styled.div`
 	background-color: #FFF;
@@ -38,20 +41,46 @@ export const Form = styled.div`
 	}
 `;
 
-const Login = () => {
+const Login = ({ signup }) => {
+
+	const { setUser } = useContext(UserContext);
+	const email = useInput("");
+	const password = useInput("");
+
+	const handleLogin = async e => {
+		e.preventDefault();
+
+		const body = { email: email.value, password: password.value };
+		console.log(body);
+		const tokenResponse = await login({ url: "auth/login", body });
+
+		const userResponse = await me({
+			url: "/auth/me",
+			token: tokenResponse.data.token
+		});
+
+		userResponse.data.data.token = tokenResponse.data.token
+
+		localStorage.setItem('user', JSON.stringify(userResponse.data.data))
+		setUser(userResponse.data.data)
+
+		email.setValue("");
+		password.setValue("");
+	};
+
 	return (
-		<Form>
+		<Form onSubmit={handleLogin}>
 			<img className="logo" src={logo} alt="logo" />
 			<form>
-				<input type="email" placeholder="user@pass.com" />
-				<input type="password" placeholder="secretpassword" />
-				<input type="submit" value="Log In" className="login-btn" />
+			<input type="email" placeholder="user@pass.com" value={email.value} onChange={email.onChange} />
+			<input type="password" placeholder="verysecretpassword" value={password.value} onChange={password.onChange} />
+			<input type="submit" value="Log In" className="login-btn" />
 			</form>
 
 			<div>
-				<p>
-					Don't have an account? <span>Sign up</span>
-				</p>
+			<p>
+				<span onClick={signup}>Sign up</span>
+			</p>
 			</div>
 		</Form>
 	);
